@@ -19,10 +19,10 @@
 # کارهای آینده
 
 # مراجع
-D. A. Forsyth and J. Ponce, Computer Vision: A Modern Approach, 2nd ed. .
-P. Viola and M. Jones, “Rapid object detection using a boosted cascade of simple features,” Proc. 2001 IEEE Comput. Soc. Conf. Comput. Vis. Pattern Recognition. CVPR 2001, vol. 1, 2001.
-O. M. Way and M. J. Jones, “Robust Real-Time Face Detection,” 2004.
-M.-H. Y. M.-H. Yang, D. J. Kriegman, and N. Ahuja, “Detecting faces in images: a survey,” IEEE Trans. Pattern Anal. Mach. Intell., vol. 24, no. 1, pp. 34–58, 2002.
++D. A. Forsyth and J. Ponce, Computer Vision: A Modern Approach, 2nd ed. .
++P. Viola and M. Jones, “Rapid object detection using a boosted cascade of simple features,” Proc. 2001 IEEE Comput. Soc. Conf. Comput. Vis. Pattern Recognition. CVPR 2001, vol. 1, 2001.
++O. M. Way and M. J. Jones, “Robust Real-Time Face Detection,” 2004.
++M.-H. Y. M.-H. Yang, D. J. Kriegman, and N. Ahuja, “Detecting faces in images: a survey,” IEEE Trans. Pattern Anal. Mach. Intell., vol. 24, no. 1, pp. 34–58, 2002.
 
 # پیوندهای مفید
 + [کتابخانه اپن‌سی‌وی](http://opencv.org)
