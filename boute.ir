@@ -79,25 +79,65 @@ $$detection\ rate= \frac{correctly\ detected}{determined\ by\ human}$$
 بر خلاف روش الگو محور که در آن الگوی مورد استفاده توسط گروهی متخصص تولید می‌گردد در روش ظاهر محور این الگو از آموزش عامل هوش مصنوعی بوسیله‌ی تعدادی مثال‌ از تصاویر چهره حاصل می‌شود. به طور معمول روش‌های ظاهر محور بر اساس آنالیز آماری و یادگیری ماشین استوار است. در همین حال از کاهش کیفیت تصاویر نیز در جهت بهبود عملکرد محاسباتی استفاده می‌شود.
 
 # کارهای مرتبط
-وایولا و جونز در **[2]** روشی برای حل مسأله تشخیص اشیاء مبتنی بر یادگیری ماشینی را معرفی کرده‌اند که قادر به پردازش سریع تصاویر با میزان نشخیص بالا خواهد بود.
+وایولا و جونز در **[2]** روشی برای حل مسأله تشخیص اشیاء مبتنی بر یادگیری ماشینی را معرفی کرده‌اند که قادر به پردازش سریع تصاویر با میزان تشخیص بالا خواهد بود.
 
-## انتگرال تصویر[^13]
-برگرفته از [ویکی‌پدیا](http://en.wikipedia.org/wiki/Summed_area_table)
-*ماتریس مجموع محیطی*[^14] ساختمان داده و الگوریتمی برای محاسبه‌ی سریع و دقیق مجموع مقادیر محدود به زیرمجموعه‌ای از یک ماتریس (برای مثال یک تصویر) که به شکل مستطیلی ظاهر می‌شود، است.
+روش معرفی شده که به نوعی نماینده‌ی روش‌های ظاهرمحور محسوب می‌شود از سه عنصر کلیدی استفاده می‌کند:
+
++ **انتگرال تصویر**[^13] که توانایی محاسبه سریع مجموع مقادیر پیکسل‌های موجود در یک قاب مستطیل شکل را به ما می‌دهد.
++ **آدابوست**[^14] که ما را قادر به تنظیم پارامتر‌های مختلف، نوع و تعداد *مشخصه‌های هار*[^18] مورد استفاده در *الگوریتم‌های کلاس‌بندی*[^17] موجود در مدل آبشاری می‌کند تا بتوان با استفاده از کمترین تعداد از *مشخصه‌های هار* و در نتیجه محاسبه‌ی کمتر به بیشترین میزان تشخیص رسید.
++ **روش آبشاری در کلاس‌بندی اشیا**.
+
+
+## انتگرال تصویر **[9]**
+*ماتریس مجموع محیطی*[^15] ساختمان داده و الگوریتمی برای محاسبه‌ی سریع و دقیق زیرمجموعه‌ای از یک ماتریس (برای مثال یک تصویر) که به شکل مستطیلی ظاهر می‌شود، است.
+
 در ادبیات پردازش تصویر از این الگوریتم به عنوان *انتگرال تصویر* نیز یاد می‌شود.
-همان‌طور که از نام تکنیک پیداست مقدار ماتریس *ماتریس مجموع محیطی* روی درایه‌ی *(x, y)* برابرست با مجموع همه‌ی مقادیر بالا و چپ درایه‌ی *(x, y)* ماتریس اصلی.
+همان‌طور که از نام تکنیک پیداست مقدار درایه‌ی *(x, y)* *ماتریس مجموع محیطی* برابرست با مجموع همه‌ی مقادیر بالا و چپ درایه‌ی *(x, y)* ماتریس اصلی.
+
 $$I(x,y)=\sum_{{x}'<x{y}'<y}{i({x}',{y}')}$$
+
 علاوه بر این *ماتریس مجموع محیطی* به راحتی و با تکیه به این اصل که مقدار درایه‌ی *(x,y)* آن از طریق فرمول زیر بدست می‌آید، قابل محاسبه است.
+
 $$I(x,y)=i(x,y) - I(x-1,y) + I(x,y-1) - I(x-1,y-1)$$
+
 بدین ترتیب وقتی *ماتریس مجموع محیطی* محاسبه شد، مقداردهی به هر زیر مجموعه‌ی مستطیل شکلی به‌سادگی و در زمان ثابت قابل انجام می‌باشد. برای محاسبه از فرمول زیر می‌توان استفاده کرد.
-اگر فرض کنیم $$A=(x0, y1)$$، $$B=(x1, y1)$$، $$C=(x1, y0)$$ و $$D=(x0, y0)$$ باشند.
-$$\sum_{x0<{x}'<x1, y0<{y}'<y1}{i({x}',{y}')}={I(C)+I(A)-I(B)-I(D)}$$
-<img src="http://upload.wikimedia.org/wikipedia/commons/e/ee/Prm_VJ_fig3_computeRectangleWithAlpha.png" style="width:250px;-webkit-border-radius:20px;-moz-border-radius: 20px;border-radius: 20px;  box-shadow: 0px 0px 7px 1px #202020;-webkit-box-shadow: 0px 0px 7px 1px #202020;-moz-box-shadow: 0px 0px 7px 1px #202020;" alt="Template-based Methods">
-<!--
-# آزمایش‌ها
--->
-# کارهای آینده
-هدف این پروژه در فاز بعدی پیاده‌سازی روش ارائه شده توسط **[2]** خواهد بود.
+
+اگر فرض کنیم
+$$A=(x_0, y_1),\ B=(x_1, y_1),\ C=(x_1, y_0),\ D=(x_0, y_0)$$
+باشند، آنگاه:
+
+$$\sum_{x_0<{x}'<x_1, y_0<{y}'<y_1}{i({x}',{y}')}={I(C)+I(A)-I(B)-I(D)}$$
+
+<img src="http://upload.wikimedia.org/wikipedia/commons/e/ee/Prm_VJ_fig3_computeRectangleWithAlpha.png" style="width:250px;-webkit-border-radius:20px;-moz-border-radius: 20px;border-radius: 20px;  box-shadow: 0px 0px 7px 1px #202020;-webkit-box-shadow: 0px 0px 7px 1px #202020;-moz-box-shadow: 0px 0px 7px 1px #202020;" alt="Summed Area Table">
+
+
+## آدابوست **[10]**
+*آدابوست* الگوریتم یادگیری ماشینی است که می‌تواند همراه با سایر الگوریتم‌های یادگیری برای افزایش کارایی آن‌ها به کار رود. *آدابوست* از مجموع وزن‌دار خروجی این *الگوریتم‌های کلاس‌بندی*[^17] که از آن‌ها به عنوان *یادگیرنده‌ ضعیف*[^16] یاد می‌شود، *الگوریتم کلاس‌بندی* قوی‌تری را ایجاد کند که برای مثال در این مسأله می‌توان با درصد بالایی از اطمینان قاب‌های مختلف تصویر را به دسته‌های چهره و غیرچهره تقسیم کند.
+
+به طور کلی الگوریتم‌های *[بوستینگ](http://en.wikipedia.org/wiki/Boosting_(meta-algorithm))*[^19] در گرد این سوال به وجود آمده‌اند که آیا با استفاده از چندین *یادگیرنده‌ی ضعیف* می‌توان به یک *یادگیرنده‌ی قوی* رسید؟ یک *یادگیرنده‌ی ضعیف* به این صورت تعریف می‌شود که فقط بتواند از حالت تصادفی عملکرد بهتری داشته باشد و یا به عبارت دیگر به حالت درست نزدیک‌تر باشد. در مقابل *یادگیرنده‌های قوی* به دسته‌ای از *الگوریتم‌های کلاس‌بندی* اطلاق می‌شود که همبستگی زیادی با حالت درست داشته باشند.
+
+<img src="http://cesaserver.iust.ac.ir:7000/public.php?service=files&t=74066393dff6be818fac6f80ed23defb&download" style="width:448px;-webkit-border-radius:20px;-moz-border-radius: 20px;border-radius: 20px;  box-shadow: 0px 0px 7px 1px #202020;-webkit-box-shadow: 0px 0px 7px 1px #202020;-moz-box-shadow: 0px 0px 7px 1px #202020;" alt="Adaboost Algorithm" >
+
+در بازشناسی اشیا *مشخصه‌های هار* نقش به سزایی را ایفا می‌کنند. در تعریف *مشخصه‌های هار* از ویژگی‌های تصاویر دیجیتال است که قابلیت به دست آوردن مشخصات متفاوت تصویر را بدون نیاز به محاسبات زیاد به ما می‌دهد در حالی که مقادیر موجود در هر پیکسل نیاز به محاسبات زیاد و پیچیده‌ای برای بدست آوردن این مشخصات دارند.
+
+
+<img src="http://cesaserver.iust.ac.ir:7000/public.php?service=files&t=9d591d7cca8e6fc0c007cbfdb36badd0&download" style="width:320px;-webkit-border-radius:20px;-moz-border-radius: 20px;border-radius: 20px;  box-shadow: 0px 0px 7px 1px #202020;-webkit-box-shadow: 0px 0px 7px 1px #202020;-moz-box-shadow: 0px 0px 7px 1px #202020;" alt="Haar Features" >
+
+<img src="http://cesaserver.iust.ac.ir:7000/public.php?service=files&t=b1c6a81d116af04ba1997d4fbfa2dff4&download" style="width:320px;-webkit-border-radius:20px;-moz-border-radius: 20px;border-radius: 20px;  box-shadow: 0px 0px 7px 1px #202020;-webkit-box-shadow: 0px 0px 7px 1px #202020;-moz-box-shadow: 0px 0px 7px 1px #202020;" alt="Used Haar Features" >
+
+لینهارت و همکاران در **[6]** علاوه بر مشخصات مورد استفاده توسط وایولا و جونز در **[2]** که به شکل مستطیل هستند مشخصاتی دیگر که زاویه‌ی ۴۵ درجه دارند را با وام‌گیری از کارهای پاپاجورجو در **[7]** و **[8]** به جزییات این کار اضافه کردند که
+
+<img src="http://cesaserver.iust.ac.ir:7000/public.php?service=files&t=a27b248754ef6e9cd82b8ef51877869b&download" style="width:512px;-webkit-border-radius:20px;-moz-border-radius: 20px;border-radius: 20px;  box-shadow: 0px 0px 7px 1px #202020;-webkit-box-shadow: 0px 0px 7px 1px #202020;-moz-box-shadow: 0px 0px 7px 1px #202020;" alt="Extended Haar Features" >
+
+*آدابوست* از این جهت مورد استفاده قرار می‌گیرد که می‌توان ترتیب *یادگیرنده‌های ضعیف* را به گونه‌ای تغییر دهد تا خطا در نمونه‌های *کلاس‌بندی نشده*[^20] به حداقل برسد. وقتی قدرت اصلی آدابوست مشخص می‌شود که از زیاد بودن ابعاد در بسیاری از مسایل حوزه‌ی هوش مصنوعی صحبت کنیم. برای مثال همان طور که در الگوریتم ارایه شده توسط وایولا و جونر استفاده شده است در یک قاب با ابعاد ۲۴*۲۴ بیش از ۱۶۲هزار مشخصه‌ی هار وجود دارد که بسیار بیشتر از ابعاد قاب می‌باشد. بر خلاف سایر روش‌ها، *آدابوست* آن مشخصه‌هایی را انتخاب می‌کند که قابلیت پیش‌بینی بیشتری را در اختیار ما قرار می‌دهند. در یک تصویر درصد بسیار بالایی را قاب‌هایی تشکیل می‌دهند که شامل هیچ چهره‌ای نیستند پس اگر بتوان *الگوریتم کلاس‌بندی* را ساخت که قادر به تشخیص این قاب‌ها با استفاده از محاسبه‌ی پایین باشد، می‌توان مقدار زیادی از محاسبات کم کرد به این صورت که *آستانه‌*[^21] الگوریتم را به اندازه‌ای پایین می‌آوریم تا به میزان تشخیص ۱۰۰٪ برسیم ولی از آن‌جایی که *الگوریتم کلاس‌بندی* ما فقط از یک یا دو *مشخصه‌ی هار* استفاده می‌کند میزان خطای مثبت بالایی نیز در انتظار ما خواهد بود. به همین ترتیب و با استفاده از *مدل آبشاری* *الگوریتم کلاس‌بندی* که در مرحله‌ی اول آبشار وجود دارد ساده‌ترین و با کمترین میزان محاسبه خواهد بود و هر چه به مراحل بعدی آبشار می‌رویم این *الگوریتم*ها پیچیده‌تر می‌شوند و به مقدار بیشتری محاسبه نیاز دارند.
+
+
+## مدل آبشاری کلاس‌بندی اشیا
+در مدل آبشاری که در **[2]** مورد استفاده واقع شده ۳۸ مرحله وجود دارد و بیش از ۶۰۰۰ عدد از مشخصه‌های هار مورد استفاده قرار می‌گیرد که در آن هر مرحله نسبت به مرحله قبل پیچیده‌تر و از لحاظ محاسباتی سنگین‌تر خواهد بود. تعداد مشخصه‌هایی که در ۵ مرحله‌ی اول مورد آزمایش قرار می‌گیرد به ترتیب ۱، ۱۰، ۲۵، ۲۵ و ۵۰ هست. در بقیه‌ی لایه‌ها به ترتیب این تعداد افزایش می‌یابد تا مجموع آن به بیش از ۶۰۰۰ عدد می‌رسد.
+
+<img src="http://cesaserver.iust.ac.ir:7000/public.php?service=files&t=41cdaf2fe1e09837254896d50c6379fd&download" style="width:512px;-webkit-border-radius:20px;-moz-border-radius: 20px;border-radius: 20px;  box-shadow: 0px 0px 7px 1px #202020;-webkit-box-shadow: 0px 0px 7px 1px #202020;-moz-box-shadow: 0px 0px 7px 1px #202020;" alt="Casecade Model Procedure" >
+
+همان‌طور که در تصویر بالا مشاهده می‌شود خروجی‌های مرحله‌ی اول در صورت موفق ظاهر شدن به مرحله‌ی دوم آبشار راه می‌یابند تا در این مرحله نیز بعضی از آنها که مشخصه‌های لازم را ندارند رد شوند. بدین ترتیب مقدار زیادی از تصاویر غیرچهره حذف شده و محاسبات بیشتر روی قاب‌هایی صورت می‌گیرد که شانس بیشتری برای حضور چهره در خود دارند.
 
 # مراجع
 + **[1]** D. A. Forsyth and J. Ponce, Computer Vision: A Modern Approach, 2nd ed. .
@@ -105,6 +145,13 @@ $$\sum_{x0<{x}'<x1, y0<{y}'<y1}{i({x}',{y}')}={I(C)+I(A)-I(B)-I(D)}$$
 + **[3]** M.-H. Y. M.-H. Yang, D. J. Kriegman, and N. Ahuja, “Detecting faces in images: a survey,” IEEE Trans. Pattern Anal. Mach. Intell., vol. 24, no. 1, pp. 34–58, 2002.
 + **[4]** G. Yang and T. S. Huang, “Human Face Detection in Complex Background,” Pattern Recognition, vol. 27, no. 1, pp. 53-63, 1994.
 + **[5]** B. Scassellati,“EyeFindingvia Face Detection for a Foevated, Active Vision System,” Proc. 15th Nat’l Conf. Artificial Intelligence, 1998.
++ **[6]** R. Lienhart, A. Kuranov, V. Pisarevsky, and M. R. L. T. Report, “Empirical Analysis of Detection Cascades of Boosted Classifiers for Rapid Object Detection,” 2002.
++ **[7]** A. Mohan, C. Papageorgiou, T. Poggio. Example-based object detection in images by components. IEEE Transactions on Pattern Analysis and Machine Intelligence, Vol. 23, No. 4, pp. 349 -361, April 2001.
++ **[8]** C. Papageorgiou, M. Oren, and T. Poggio. A general framework for Object Detection. In International Conference on Computer Vision, 1998.
++ **[9]** Summed Area Table, http://en.wikipedia.org/wiki/Summed_area_table
++ **[10]** Adaboost, http://en.wikipedia.org/wiki/AdaBoost
+
+<!--
 
 # پیوندهای مفید #
 + [کتابخانه اپن‌سی‌وی](http://opencv.org)
@@ -116,6 +163,9 @@ $$\sum_{x0<{x}'<x1, y0<{y}'<y1}{i({x}',{y}')}={I(C)+I(A)-I(B)-I(D)}$$
 + [بینایی کامپیوتری در جاوااسکریپت](http://inspirit.github.io/jsfeat/)
 + [تشخیص چهره در جاوااسکریپت ۱](http://inspirit.github.io/jsfeat/#haar)
 + [تشخیص چهره در جاوااسکریپت ۲](http://inspirit.github.io/jsfeat/#bbf)
+
+-->
+
 [^1]: Pose
 [^2]: Image orientation.
 [^3]: Face localization.
@@ -125,6 +175,15 @@ $$\sum_{x0<{x}'<x1, y0<{y}'<y1}{i({x}',{y}')}={I(C)+I(A)-I(B)-I(D)}$$
 [^7]: Feature invariant.
 [^8]: Template matching.
 [^9]: Appearance-based.
-[^10]: detection rate.
-[^11]: false alarm.
-[^12]: positive alarm.
+[^10]: Detection rate.
+[^11]: False alarm.
+[^12]: Positive alarm.
+[^13]: Integral image.
+[^14]: AdaBoost.
+[^15]: Summed area table.
+[^16]: Weak learner.
+[^17]: classifier.
+[^18]: Haar features.
+[^19]: Boosing.
+[^20]: misclassified.
+[^21]: Threshold.
