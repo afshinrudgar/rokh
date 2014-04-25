@@ -1,4 +1,4 @@
 *~
-*.vec
-*.xml
-
+opencv_training/samples/*.vec
+opencv_training/positive_images/*
+opencv_training/negative_images/*
