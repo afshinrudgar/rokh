@@ -64,20 +64,31 @@ def main():
         type="str", 
         help="Addrress of Input files for face-detector"
     )
+    parser.add_option(
+        "-t", "--truth-file",
+        action="store", 
+        dest="truth_file", 
+        type="str", 
+        help="Addrress of Input files for face-detector"
+    )
+ 
     (options, args) = parser.parse_args()
 
     cascade = cv.Load(options.cascade)
+    
+    truth = read_truth_file(options.truth_file) if options.truth_file else None
 
     for filename in process_options(options, args):
-        try:
+        if check_file_type(filename, 'image'):
+            print filename
             img = read_image_as_array(filename)
-            faces = [face[0] for face in facedetect(cv.fromarray(img), cascade)]
-
             copy = img.copy()
-            draw_rects(copy, faces, (0, 255, 0))
+
+            faces = [face[0] for face in facedetect(cv.fromarray(img), cascade)]
+            check_and_color(copy, faces, filename, truth)
             save_img(filename, copy, options.cascade)
-        except:
-            print_warning("Can not open file > %s" %(filename))
+        else:
+            print_warning("Can not open file > %s" %filename)
 
 if __name__ == "__main__":
     main()

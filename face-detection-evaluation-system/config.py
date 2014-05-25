@@ -1,4 +1,5 @@
 
+import cv2.cv as cv
 # Parameters for haar detection
 # From the API:
 # The default parameters (scale_factor=2, min_neighbors=3, flags=0) are tuned
@@ -11,4 +12,4 @@ min_size        = (10, 10)
 image_scale     = 1
 haar_scale      = 1.2
 min_neighbors   = 4
-haar_flags      = 0
+haar_flags      = cv.CV_HAAR_DO_CANNY_PRUNING
