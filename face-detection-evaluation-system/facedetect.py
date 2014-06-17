@@ -80,13 +80,13 @@ def main():
 
     for filename in process_options(options, args):
         if check_file_type(filename, 'image'):
-            print filename
-            img = read_image_as_array(filename)
-            copy = img.copy()
+            if not detected(filename):
+                img = read_image_as_array(filename)
+                copy = img.copy()
 
-            faces = [face[0] for face in facedetect(cv.fromarray(img), cascade)]
-            check_and_color(copy, faces, filename, truth)
-            save_img(filename, copy, options.cascade)
+                faces = [face[0] for face in facedetect(cv.fromarray(img), cascade)]
+                check_and_color(copy, faces, filename, truth)
+                save_img(filename, copy, options.cascade)
         else:
             print_warning("Can not open file > %s" %filename)
 

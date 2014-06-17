@@ -2,15 +2,11 @@
 import os
 from os import path
 import cv2
-import cv2.cv as cv
 from mimetypes import guess_type
-
-types_map = {
-    'image': ['jpg']
-}
+from config import *
 
 def check_file_type(filename, type):
-    return filename.split('.')[-1] in types_map[type]
+    return file_format(filename) in TYPES_MAP[type]
 
 def is_in_rect(point, rect):
     xp, yp = point
@@ -21,8 +17,8 @@ def is_in_rect(point, rect):
 def check_and_color(copy, faces, filename, truth):
     filename = path.basename(filename)
     for face in faces:
-        if truth == None:   
-            draw_rects(copy, face, (128, 128, 128)); 
+        if not truth:   
+            draw_rects(copy, face, COLOR_MAP['unknown']); 
             continue;
 
         flag = True
@@ -32,24 +28,25 @@ def check_and_color(copy, faces, filename, truth):
             ):
                 truth[filename].remove(fact)
                 flag = False
-                draw_rects(copy, face, (0, 255, 0)); 
+                draw_rects(copy, face, COLOR_MAP['detected']); 
                 break
         if flag:
-            draw_rects(copy, face, (0, 0, 255))
+            draw_rects(copy, face, COLOR_MAP['false-positive'])
 
-    for fact in truth.get(filename, []):
-        face_width = abs(fact['right-eye'][0] - fact['left-eye'][0])
-        face_height =  abs(fact['center-mouth'][1] - fact['right-eye'][1])
-        draw_rects(
-            copy,
-            (
-                fact['left-eye'][0] - face_width,
-                fact['left-eye'][1] - face_height,
-                fact['right-corner-mouth'][0] - fact['left-eye'][0] + face_width,
-                fact['right-corner-mouth'][1] - fact['left-eye'][1] + face_height
-            ),
-            (255, 0, 0)
-        )
+    if truth:
+        for fact in truth.get(filename, []):
+            face_width = abs(fact['right-eye'][0] - fact['left-eye'][0])
+            face_height =  abs(fact['center-mouth'][1] - fact['right-eye'][1])
+            draw_rects(
+                copy,
+                (
+                    abs(fact['left-eye'][0] - face_width),
+                    abs(fact['left-eye'][1] - face_height),
+                    abs(fact['right-corner-mouth'][0] - fact['left-eye'][0] + 2*face_width),
+                    abs(fact['right-corner-mouth'][1] - fact['left-eye'][1] + 2*face_height)
+                ),
+                COLOR_MAP['false-negative']
+            )
 
 def read_truth_file(fn):
     truth = {}
@@ -123,18 +120,18 @@ def draw_rects(img, face, color):
     cv2.rectangle(img, (x, y), (x+w, y+h), color, 2)
 
 def save_img(filename, img, filtername):
-    dirname = path.join(
-        path.dirname(filename), 
-        path.basename(filtername).split('.')[0]
+    base = path.basename(filename).split('/')[-1].split('.')[0]
+    dir = path.dirname(filename)
+    addr = path.join(
+        dir,
+        base \
+            + '_' + path.basename(filtername).split('_')[-1].split('.')[0] \
+            + DETECT_CODE + '.' + file_format(filename) 
     )
-    basename = path.basename(filename)
+    cv2.imwrite(addr, img)
 
-    if not path.isdir(dirname):
-        os.mkdir(dirname)
-    filename = path.join(
-        dirname, 
-        basename.split('.')[-2] + "-" \
-            + "faced" + '.' \
-            + basename.split('.')[-1]
-    )
-    cv2.imwrite(filename, img)
+def file_format(dir):
+    return dir.split('.')[-1]
+
+def detected(filename):
+    return filename.split('/')[-1].split('.')[0].endswith(DETECT_CODE)

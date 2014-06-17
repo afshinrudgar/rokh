@@ -8,8 +8,21 @@ import cv2.cv as cv
 # scale_factor=1.2, min_neighbors=2, flags=CV_HAAR_DO_CANNY_PRUNING,
 # min_size=<minimum possible face size
 
-min_size        = (10, 10)
+min_size        = (5, 5)
 image_scale     = 1
 haar_scale      = 1.2
 min_neighbors   = 4
 haar_flags      = cv.CV_HAAR_DO_CANNY_PRUNING
+
+TYPES_MAP = {
+    'image': ['jpg']
+}
+
+COLOR_MAP = {
+    'unknown': (128, 128, 255),
+    'detected': (0, 255, 0),
+    'false-positive': (0, 255, 255),
+    'false-negative': (255, 0, 0)
+}
+
+DETECT_CODE = "___x___"
