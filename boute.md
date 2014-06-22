@@ -26,6 +26,10 @@
 
 <img src="http://upload.wikimedia.org/wikipedia/en/2/24/Lenna.png" style="width:512px;-webkit-border-radius:20px;-moz-border-radius: 20px;border-radius: 20px;  box-shadow: 0px 0px 7px 1px #202020;-webkit-box-shadow: 0px 0px 7px 1px #202020;-moz-box-shadow: 0px 0px 7px 1px #202020;" alt="Lenna" >
 
+<p align="center">
+شکل شماره ۱
+</p>
+
 در ادبیات تشخیص چهره، مفهومی مرتبط وجود دارد که از آن به عنوان *مکان‌یابی چهره*[^3] یاد می‌کنیم. خواننده محترم باید این نکته را در نظر داشته باشد که هدف از *مکان‌یابی چهره* درست همانند *تشخیص چهره* هست اما تفاوت اندکی موجود خواهد بود و آن این که در *مکان‌یابی چهره* تصویر موجود فقط شامل یک چهره در نظر گرفته می‌شود.
 یکی از روش‌های مرسوم در زمینه تشخیص اشیاء در نظر گرفتن قابی[^4] کوچک روی تصویر اصلی و تشخیص این خواهد بود که آیا شیء مورد نظر در آن پنجره وجود دارد یا نه؟ پس اگر از این روش استفاده شود باید در جستجوی الگوریتمی بود تا توانایی تشخیص وجود یا عدم وجود چهره در یک قاب کوچک، متشکل از چند صد پیکسل داشته باشد.
 در این دیدگاه تشخیص چهره را می‌توان به صورت مساله‌ی دسته بندی نیز در نظر گرفت. به این صورت که عامل هوش مصنوعی باید قاب‌های مختلف موجود در تصویر را در دو گروه *چهره* و *غیرچهره* در نظر گرفت.
@@ -55,7 +59,11 @@ $$detection\ rate= \frac{correctly\ detected}{determined\ by\ human}$$
 
 یکی از استراتژی‌های جالب توجه در این روش استفاده از الگوریتم‌های ابتکاری خواهد بود. بدین صورت که ابتدا با اعمال بعضی قوانین ساده‌تر بر روی تصویر با کیفیت پایین‌تر به راحتی تعداد زیادی از قاب‌ها را حذف کرده و در مراحل بعدی با اعمال قوانین سخت‌گیرانه‌تر قاب‌های باقی‌مانده را فیلتر کرد. در پایان هر کدام از قاب‌ها که همه‌ی قوانین را پشت سر گذاشته است به عنوان چهره تشخیص داده می‌شود.
 
-<img src="http://cesaserver.iust.ac.ir:7000/public.php?service=files&t=84640ecf3af587a24c981dd955c3b232&download" style="width:250px;-webkit-border-radius:20px;-moz-border-radius: 20px;border-radius: 20px;  box-shadow: 0px 0px 7px 1px #202020;-webkit-box-shadow: 0px 0px 7px 1px #202020;-moz-box-shadow: 0px 0px 7px 1px #202020;" alt="Knowledge-based Methods" >
+<img id="pic2" src="http://cesaserver.iust.ac.ir:7000/public.php?service=files&t=84640ecf3af587a24c981dd955c3b232&download" style="width:250px;-webkit-border-radius:20px;-moz-border-radius: 20px;border-radius: 20px;  box-shadow: 0px 0px 7px 1px #202020;-webkit-box-shadow: 0px 0px 7px 1px #202020;-moz-box-shadow: 0px 0px 7px 1px #202020;" alt="Knowledge-based Methods" >
+
+<p align="center">
+شکل شماره ۲
+</p>
 
 یک تصویر مورد استفاده در روش‌های بالا-به-پایین دانش محور تولید شده بر اساس دانش انسانی درباره خصوصیات چهره انسان.بر گرفته از **[4]**
 
@@ -73,6 +81,9 @@ $$detection\ rate= \frac{correctly\ detected}{determined\ by\ human}$$
 
 <img src="http://cesaserver.iust.ac.ir:7000/public.php?service=files&t=36e20a132b37cbfe71a34213d32ee2bd&download" style="width:350px;-webkit-border-radius:20px;-moz-border-radius: 20px;border-radius: 20px;  box-shadow: 0px 0px 7px 1px #202020;-webkit-box-shadow: 0px 0px 7px 1px #202020;-moz-box-shadow: 0px 0px 7px 1px #202020;" alt="Template-based Methods">
 
+<p align="center">
+شکل شماره ۳
+</p>
 الگوی نسبی تولید شده جهت تشخیص چهره (بر گرفته از **[5]**)
 
 ### روش‌های ظاهر محور
@@ -108,6 +119,9 @@ $$\sum_{x_0<{x}'<x_1, y_0<{y}'<y_1}{i({x}',{y}')}={I(C)+I(A)-I(B)-I(D)}$$
 
 <img src="http://upload.wikimedia.org/wikipedia/commons/e/ee/Prm_VJ_fig3_computeRectangleWithAlpha.png" style="width:250px;-webkit-border-radius:20px;-moz-border-radius: 20px;border-radius: 20px;  box-shadow: 0px 0px 7px 1px #202020;-webkit-box-shadow: 0px 0px 7px 1px #202020;-moz-box-shadow: 0px 0px 7px 1px #202020;" alt="Summed Area Table">
 
+<p align="center">
+شکل شماره ۴
+</p>
 
 ## آدابوست **[10]**
 *آدابوست* الگوریتم یادگیری ماشینی است که می‌تواند همراه با سایر الگوریتم‌های یادگیری برای افزایش کارایی آن‌ها به کار رود. *آدابوست* از مجموع وزن‌دار خروجی این *الگوریتم‌های کلاس‌بندی*[^17] که از آن‌ها به عنوان *یادگیرنده‌ ضعیف*[^16] یاد می‌شود، *الگوریتم کلاس‌بندی* قوی‌تری را ایجاد کند که برای مثال در این مسأله می‌توان با درصد بالایی از اطمینان قاب‌های مختلف تصویر را به دسته‌های چهره و غیرچهره تقسیم کند.
@@ -116,17 +130,27 @@ $$\sum_{x_0<{x}'<x_1, y_0<{y}'<y_1}{i({x}',{y}')}={I(C)+I(A)-I(B)-I(D)}$$
 
 <img src="http://cesaserver.iust.ac.ir:7000/public.php?service=files&t=74066393dff6be818fac6f80ed23defb&download" style="width:448px;-webkit-border-radius:20px;-moz-border-radius: 20px;border-radius: 20px;  box-shadow: 0px 0px 7px 1px #202020;-webkit-box-shadow: 0px 0px 7px 1px #202020;-moz-box-shadow: 0px 0px 7px 1px #202020;" alt="Adaboost Algorithm" >
 
+<p align="center">
+شکل شماره ۵
+</p>
+
 در بازشناسی اشیا *مشخصه‌های هار* نقش به سزایی را ایفا می‌کنند. در تعریف *مشخصه‌های هار* از ویژگی‌های تصاویر دیجیتال است که قابلیت به دست آوردن مشخصات متفاوت تصویر را بدون نیاز به محاسبات زیاد به ما می‌دهد در حالی که مقادیر موجود در هر پیکسل نیاز به محاسبات زیاد و پیچیده‌ای برای بدست آوردن این مشخصات دارند.
 
 
 <img src="http://cesaserver.iust.ac.ir:7000/public.php?service=files&t=9d591d7cca8e6fc0c007cbfdb36badd0&download" style="width:320px;-webkit-border-radius:20px;-moz-border-radius: 20px;border-radius: 20px;  box-shadow: 0px 0px 7px 1px #202020;-webkit-box-shadow: 0px 0px 7px 1px #202020;-moz-box-shadow: 0px 0px 7px 1px #202020;" alt="Haar Features" >
-
+<p align="center">
+شکل شماره ۶
+</p>
 <img src="http://cesaserver.iust.ac.ir:7000/public.php?service=files&t=b1c6a81d116af04ba1997d4fbfa2dff4&download" style="width:320px;-webkit-border-radius:20px;-moz-border-radius: 20px;border-radius: 20px;  box-shadow: 0px 0px 7px 1px #202020;-webkit-box-shadow: 0px 0px 7px 1px #202020;-moz-box-shadow: 0px 0px 7px 1px #202020;" alt="Used Haar Features" >
-
+<p align="center">
+شکل شماره ۷
+</p>
 لینهارت و همکاران در **[6]** علاوه بر مشخصات مورد استفاده توسط وایولا و جونز در **[2]** که به شکل مستطیل هستند مشخصاتی دیگر که زاویه‌ی ۴۵ درجه دارند را با وام‌گیری از کارهای پاپاجورجو در **[7]** و **[8]** به جزییات این کار اضافه کردند که
 
 <img src="http://cesaserver.iust.ac.ir:7000/public.php?service=files&t=a27b248754ef6e9cd82b8ef51877869b&download" style="width:512px;-webkit-border-radius:20px;-moz-border-radius: 20px;border-radius: 20px;  box-shadow: 0px 0px 7px 1px #202020;-webkit-box-shadow: 0px 0px 7px 1px #202020;-moz-box-shadow: 0px 0px 7px 1px #202020;" alt="Extended Haar Features" >
-
+<p align="center">
+شکل شماره ۸
+</p>
 *آدابوست* از این جهت مورد استفاده قرار می‌گیرد که می‌توان ترتیب *یادگیرنده‌های ضعیف* را به گونه‌ای تغییر دهد تا خطا در نمونه‌های *کلاس‌بندی نشده*[^20] به حداقل برسد. وقتی قدرت اصلی آدابوست مشخص می‌شود که از زیاد بودن ابعاد در بسیاری از مسایل حوزه‌ی هوش مصنوعی صحبت کنیم. برای مثال همان طور که در الگوریتم ارایه شده توسط وایولا و جونر استفاده شده است در یک قاب با ابعاد ۲۴x۲۴ بیش از ۱۶۲هزار مشخصه‌ی هار وجود دارد که بسیار بیشتر از ابعاد قاب می‌باشد. بر خلاف سایر روش‌ها، *آدابوست* آن مشخصه‌هایی را انتخاب می‌کند که قابلیت پیش‌بینی بیشتری را در اختیار ما قرار می‌دهند. در یک تصویر درصد بسیار بالایی را قاب‌هایی تشکیل می‌دهند که شامل هیچ چهره‌ای نیستند پس اگر بتوان *الگوریتم کلاس‌بندی* را ساخت که قادر به تشخیص این قاب‌ها با استفاده از محاسبه‌ی پایین باشد، می‌توان مقدار زیادی از محاسبات کم کرد به این صورت که *آستانه‌*[^21] الگوریتم را به اندازه‌ای پایین می‌آوریم تا به میزان تشخیص ۱۰۰٪ برسیم ولی از آن‌جایی که *الگوریتم کلاس‌بندی* ما فقط از یک یا دو *مشخصه‌ی هار* استفاده می‌کند میزان خطای مثبت بالایی نیز در انتظار ما خواهد بود. به همین ترتیب و با استفاده از *مدل آبشاری* *الگوریتم کلاس‌بندی* که در مرحله‌ی اول آبشار وجود دارد ساده‌ترین و با کمترین میزان محاسبه خواهد بود و هر چه به مراحل بعدی آبشار می‌رویم این *الگوریتم*ها پیچیده‌تر می‌شوند و به مقدار بیشتری محاسبه نیاز دارند.
 
 
@@ -134,9 +158,19 @@ $$\sum_{x_0<{x}'<x_1, y_0<{y}'<y_1}{i({x}',{y}')}={I(C)+I(A)-I(B)-I(D)}$$
 در مدل آبشاری که در **[2]** مورد استفاده واقع شده ۳۸ مرحله وجود دارد و بیش از ۶۰۰۰ عدد از مشخصه‌های هار مورد استفاده قرار می‌گیرد که در آن هر مرحله نسبت به مرحله قبل پیچیده‌تر و از لحاظ محاسباتی سنگین‌تر خواهد بود. تعداد مشخصه‌هایی که در ۵ مرحله‌ی اول مورد آزمایش قرار می‌گیرد به ترتیب ۱، ۱۰، ۲۵، ۲۵ و ۵۰ هست. در بقیه‌ی لایه‌ها به ترتیب این تعداد افزایش می‌یابد تا مجموع آن به بیش از ۶۰۰۰ عدد می‌رسد.
 
 <img src="http://cesaserver.iust.ac.ir:7000/public.php?service=files&t=41cdaf2fe1e09837254896d50c6379fd&download" style="width:512px;-webkit-border-radius:20px;-moz-border-radius: 20px;border-radius: 20px;  box-shadow: 0px 0px 7px 1px #202020;-webkit-box-shadow: 0px 0px 7px 1px #202020;-moz-box-shadow: 0px 0px 7px 1px #202020;" alt="Casecade Model Procedure" >
-
+<p align="center">
+شکل شماره ۹
+</p>
 همان‌طور که در تصویر بالا مشاهده می‌شود خروجی‌های مرحله‌ی اول در صورت موفق ظاهر شدن به مرحله‌ی دوم آبشار راه می‌یابند تا در این مرحله نیز بعضی از آنها که مشخصه‌های لازم را ندارند رد شوند. بدین ترتیب مقدار زیادی از تصاویر غیرچهره حذف شده و محاسبات بیشتر روی قاب‌هایی صورت می‌گیرد که شانس بیشتری برای حضور چهره در خود دارند.
 
+# کار‌های آینده
+در آینده در نظر داریم تا با اضافه کردن قسمت‌های زیر کارایی را در این مدل بهبود ببخشیم.
+
+یکی از این قسمت‌ها می‌تواند چهره‌ی ارائه شده توسط سیستم حاضر را دریافت کرده و با مقایسه‌ی آن با مدل از چهره که توسط انسان ایجاد شده است، تائیدی باشد بر این‌که قاب ارائه شده شامل تصویر است و در صورتی که مشابهتی وجود نداشت. قاب را حذف کند.
+
+نمونه‌ای از مدلی از چهره انسان در [شکل شماره ۲][#pic2] مشاهده می‌شود.
+
+	
 # مراجع
 + **[1]** D. A. Forsyth and J. Ponce, Computer Vision: A Modern Approach, 2nd ed. .
 + **[2]** P. Viola and M. Jones, “Rapid object detection using a boosted cascade of simple features,” Proc. 2001 IEEE Comput. Soc. Conf. Comput. Vis. Pattern Recognition. CVPR 2001, vol. 1, 2001.
